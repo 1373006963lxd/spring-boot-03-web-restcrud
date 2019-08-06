@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--这里一定要注意加上xmlns:th="http://www.thymeleaf.org 有提示 下面那个可加可不加-->
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    <h1>成功！</h1>
+<!--  th:text将div里面的文本内容（这是显示欢迎信息）设置为 th:text="${hello}"   -->
+<!--   div里面默认的值都可以进行修改th：-->
+
+<!--    转义 字符串里面是什么就是什么-->
+    <div th:text="${hello}">这是显示欢迎信息</div>
+
+<!--    这个bu转义将字符串里面的<h1>进行解析 呈现h1大小的信息-->
+    <div th:utext="${hello}"></div>
+
+<hr/>
+
+<!--th:each 每次遍历都会生成当前这个标签 3 个 h4-->
+<h4 th:text="${user}" th:each="user:${users}"></h4>
+<hr/>
+
+<!--    一个h4里面有3个span-->
+<h4>
+    <span th:each="user:${users}"> [[${user}]] </span>
+</h4>
+</body>
+</html>
